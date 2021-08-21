@@ -43,6 +43,10 @@ Encore
      */
     .cleanupOutputBeforeBuild()
     //.enableBuildNotifications()
+    .enableBuildCache({ config: [__filename] }, (cache) => {
+        cache.version = `${process.env.GIT_REV}`;
+        cache.name = `${process.env.target}`;
+    })
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
@@ -61,7 +65,7 @@ Encore
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes(Encore.isProduction())
+    .enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
@@ -69,6 +73,6 @@ Encore
     // uncomment if you use API Platform Admin (composer require api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/admin.js')
-;
+    ;
 
 module.exports = Encore.getWebpackConfig();
