@@ -20,12 +20,6 @@
     "sass-loader": "^12.1.0",
     "workbox-webpack-plugin": "^6.2.4"
   },
-  "optionalDependencies": {
-    "less": "^4.1.1",
-    "less-loader": "9.0.0",
-    "stylus": "^0.54.8",
-    "stylus-loader": "5.0.0"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@popperjs/core": "^2.9.3",

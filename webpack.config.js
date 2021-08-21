@@ -69,8 +69,6 @@ Encore
     // enables extra styling support
     .enablePostCssLoader() // handles polyfills alongside autoprefixer
     .enableSassLoader()
-    //.enableLessLoader()
-    //.enableStylusLoader()
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
