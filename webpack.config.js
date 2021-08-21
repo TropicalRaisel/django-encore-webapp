@@ -69,7 +69,6 @@ Encore
     // enables extra styling support
     .enablePostCssLoader() // handles polyfills alongside autoprefixer
     .enableSassLoader()
-    //.enableHandlebarsLoader()
     //.enableLessLoader()
     //.enableStylusLoader()
 
