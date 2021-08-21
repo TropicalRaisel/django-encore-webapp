@@ -1,0 +1,12 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "Django & Webpack Encore",
+  "repository": "https://github.com/TropicalRaisel/django-encore-webapp.git",
+  "author": "TropicalRaisel",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@symfony/webpack-encore": "^1.5.0"
+  }
+}
