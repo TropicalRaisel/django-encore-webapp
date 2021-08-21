@@ -62,11 +62,12 @@ Encore
         config.corejs = 3;
     })
 
-    // enables Sass/SCSS support
+    // enables extra styling support
+    .enablePostCssLoader() // handles polyfills alongside autoprefixer
     .enableSassLoader()
-
-    // enables CSS & polyfill support alongside Sass
-    .enablePostCssLoader()
+    //.enableHandlebarsLoader()
+    //.enableLessLoader()
+    //.enableStylusLoader()
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
