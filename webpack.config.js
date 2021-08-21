@@ -51,6 +51,10 @@ Encore
     .configureDevServerOptions((config) => {
         // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
         delete config.client.host
+
+        config.allowedHosts = 'all';
+        // in older Webpack Dev Server versions, use this option instead:
+        // config.firewall = false;
     })
 
     // enables hashed filenames (e.g. app.abc123.css)
