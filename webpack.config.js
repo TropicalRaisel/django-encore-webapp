@@ -48,6 +48,11 @@ Encore
         cache.name = `${process.env.target}`;
     })
     .enableSourceMaps(!Encore.isProduction())
+    .configureDevServerOptions((config) => {
+        // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
+        delete config.client.host
+    })
+
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
@@ -60,19 +65,12 @@ Encore
     // enables Sass/SCSS support
     .enableSassLoader()
 
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
-
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     .enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-
-    // uncomment if you use API Platform Admin (composer require api-admin)
-    //.enableReactPreset()
-    //.addEntry('admin', './assets/admin.js')
     ;
 
 module.exports = Encore.getWebpackConfig();
