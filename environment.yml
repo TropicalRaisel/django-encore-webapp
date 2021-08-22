@@ -1,0 +1,27 @@
+name: encore
+channels:
+  - defaults
+dependencies:
+  - asgiref=3.4.1=pyhd3eb1b0_0
+  - ca-certificates=2021.7.5=haa95532_1
+  - certifi=2021.5.30=py39haa95532_0
+  - django=3.2.5=pyhd3eb1b0_0
+  - libpq=12.2=hb652d5d_1
+  - openssl=1.1.1k=h2bbff1b_0
+  - pip=21.2.4=py38haa95532_0
+  - psycopg2=2.8.6=py39hcd4344a_1
+  - python=3.9.6=h6244533_1
+  - pytz=2021.1=pyhd3eb1b0_0
+  - setuptools=52.0.0=py39haa95532_0
+  - sqlite=3.36.0=h2bbff1b_0
+  - sqlparse=0.4.1=py_0
+  - typing_extensions=3.10.0.0=pyh06a4308_0
+  - tzdata=2021a=h5d7bf9c_0
+  - vc=14.2=h21ff451_1
+  - vs2015_runtime=14.27.29016=h5e58377_2
+  - wheel=0.37.0=pyhd3eb1b0_0
+  - wincertstore=0.2=py39h2bbff1b_0
+  - pip:
+    - colorama==0.4.4
+    - django-encore==0.0.2
+    - honcho==1.0.1
