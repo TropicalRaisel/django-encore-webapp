@@ -1,6 +1,7 @@
 const Encore = require('@symfony/webpack-encore')
-const StylelintPlugin = require('stylelint-webpack-plugin')
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const ESLintWebpackPlugin = require('eslint-webpack-plugin')
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -51,12 +52,11 @@ Encore
   })
   .enableSourceMaps(!Encore.isProduction())
   .configureDevServerOptions((config) => {
+    // fixes cors header issues
+    config.allowedHosts = 'all'
+
     // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
     delete config.client.host
-
-    config.allowedHosts = 'all'
-    // in older Webpack Dev Server versions, use this option instead:
-    // config.firewall = false;
   })
 
   // enables hashed filenames (e.g. app.abc123.css)
@@ -83,13 +83,22 @@ Encore
 
 if (Encore.isDev()) {
   Encore
-    .addPlugin(new StylelintPlugin({
+
+    .addPlugin(new ESLintWebpackPlugin({
       fix: true,
-      threads: true
+      threads: true,
+      cache: true
+    }))
+
+    .addPlugin(new StylelintWebpackPlugin({
+      fix: true,
+      threads: true,
+      cache: true
     }))
 } else {
   Encore
-    .addPlugin(new WorkboxWebpackPlugin.GenerateSW({
+
+    .addPlugin(new GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,

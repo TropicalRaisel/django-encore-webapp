@@ -24,6 +24,7 @@
     "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
+    "eslint-webpack-plugin": "^3.0.1",
     "markdown-link-check": "^3.8.7",
     "markdown-table-formatter": "^1.2.0",
     "markdownlint": "^0.23.1",
