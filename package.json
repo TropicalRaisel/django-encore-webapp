@@ -11,7 +11,7 @@
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "build": "encore production --progress",
-    "lint": "markdownlint-cli2 README.md && remark README.md --frail && markdown-link-check -c .markdownlinkcheck.json README.md && markdown-table-formatter -c README.md",
+    "lint": "markdownlint-cli2 README.md && remark README.md --frail && markdown-link-check README.md && markdown-table-formatter -c README.md",
     "fix": "markdownlint-cli2-fix README.md && remark README.md -o && markdown-table-formatter README.md"
   },
   "devDependencies": {
