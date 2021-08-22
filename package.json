@@ -17,6 +17,8 @@
     "fix:js": "eslint --ext .js --cache --fix .",
     "lint:css": "stylelint --cache assets/styles/*.{css,scss,sass}",
     "fix:css": "stylelint --cache --fix assets/styles/*.{css,scss,sass}",
+    "lint:json": "eslint --ext .json --cache .",
+    "fix:json": "eslint --ext .json --cache --fix .",
     "lint": "yarn lint:md && yarn lint:js && yarn lint:css"
   },
   "devDependencies": {
@@ -25,6 +27,7 @@
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-jsonc": "^1.6.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-webpack-plugin": "^3.0.1",
