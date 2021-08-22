@@ -10,12 +10,21 @@
     "serve": "encore dev-server",
     "dev": "encore dev",
     "watch": "encore dev --watch",
-    "build": "encore production --progress"
+    "build": "encore production --progress",
+    "lint": "markdownlint-cli2 README.md && remark README.md --frail && markdown-link-check -c .markdownlinkcheck.json README.md && markdown-table-formatter -c README.md",
+    "fix": "markdownlint-cli2-fix README.md && remark README.md -o && markdown-table-formatter README.md"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^1.5.0",
     "autoprefixer": "^10.3.2",
+    "markdown-link-check": "^3.8.7",
+    "markdown-table-formatter": "^1.2.0",
+    "markdownlint": "^0.23.1",
+    "markdownlint-cli2": "^0.2.0",
     "postcss-loader": "5.0.0",
+    "remark-cli": "^10.0.0",
+    "remark-lint": "^9.0.1",
+    "remark-preset-lint-recommended": "^6.0.1",
     "sass": "^1.38.0",
     "sass-loader": "^12.1.0",
     "workbox-webpack-plugin": "^6.2.4"
