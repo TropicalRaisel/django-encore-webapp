@@ -13,12 +13,17 @@
     "build": "encore production --progress",
     "lint:md": "markdownlint-cli2 README.md && markdown-link-check README.md && markdown-table-formatter -c README.md",
     "fix:md": "markdownlint-cli2-fix README.md && markdown-table-formatter README.md",
-    "lint:js": "",
-    "fix:js": ""
+    "lint:js": "eslint --ext .js --cache .",
+    "fix:js": "eslint --ext .js --cache --fix ."
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^1.5.0",
     "autoprefixer": "^10.3.2",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
     "markdown-link-check": "^3.8.7",
     "markdown-table-formatter": "^1.2.0",
     "markdownlint": "^0.23.1",
