@@ -14,7 +14,10 @@
     "lint:md": "markdownlint-cli2 README.md && markdown-link-check README.md && markdown-table-formatter -c README.md",
     "fix:md": "markdownlint-cli2-fix README.md && markdown-table-formatter README.md",
     "lint:js": "eslint --ext .js --cache .",
-    "fix:js": "eslint --ext .js --cache --fix ."
+    "fix:js": "eslint --ext .js --cache --fix .",
+    "lint:css": "stylelint --cache assets/styles/*.{css,scss,sass}",
+    "fix:css": "stylelint --cache --fix assets/styles/*.{css,scss,sass}",
+    "lint": "yarn lint:md && yarn lint:js && yarn lint:css"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^1.5.0",
