@@ -18,5 +18,6 @@ module.exports = {
     },
     "MD033": false,
     "MD036": false,
+    "MD040": false,
     "blank_lines": false
 }
