@@ -2,6 +2,7 @@ const Encore = require('@symfony/webpack-encore')
 const svgToMiniDataURI = require('mini-svg-data-uri')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
@@ -62,6 +63,19 @@ Encore
 
   // enables hashed filenames (e.g. app.abc123.css)
   .enableVersioning(Encore.isProduction())
+
+  .addPlugin(new ImageMinimizerPlugin({
+    minimizerOptions: {
+      // Lossless optimization with custom option
+      // Feel free to experiment with options for better result for you
+      plugins: [
+        ['gifsicle', { interlaced: true }],
+        ['jpegtran', { progressive: true }],
+        ['optipng', { optimizationLevel: 5 }]
+        // ['svgo', { plugins: [{ removeViewBox: false }] }]
+      ]
+    }
+  }))
 
   .configureImageRule({
     type: 'asset'
