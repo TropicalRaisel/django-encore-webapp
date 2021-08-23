@@ -21,7 +21,9 @@
     "fix:css": "stylelint --cache --fix assets/styles/*.{css,scss,sass}",
     "lint:json": "eslint --ext .json --cache .",
     "fix:json": "eslint --ext .json --cache --fix .",
-    "lint": "yarn lint:md && yarn lint:js && yarn lint:css"
+    "lint:py": "black app/ core/ --check",
+    "fix:py": "isort --atomic . && black app/ core/",
+    "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:json && yarn lint:md"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^1.5.0",

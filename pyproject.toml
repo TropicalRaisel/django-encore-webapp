@@ -1,0 +1,23 @@
+[tool.black]
+line-length = 119
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | node_modules
+    | public
+)/
+'''
+include_trailing_comma = false
+
+[tool.isort]
+src_paths=["app", "core"]
+profile="black"
