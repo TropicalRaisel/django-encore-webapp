@@ -23,5 +23,4 @@ dependencies:
   - wincertstore=0.2=py39h2bbff1b_0
   - pip:
     - colorama==0.4.4
-    - django-encore==0.0.2
     - honcho==1.0.1
