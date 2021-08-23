@@ -9,8 +9,8 @@ from json import load as serialize
 register = template.Library()
 
 def get_data_from_json_file(filepath: Path):
-  if filepath.is_file():
-    with open(filepath) as json:
+  if filepath.exists() and filepath.is_file():
+    with filepath.open() as json:
       return serialize(json)
   else:
     raise ImproperlyConfigured('File not found: {}'.format(filepath))
