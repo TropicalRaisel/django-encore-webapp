@@ -1,5 +1,5 @@
 import '../styles/app.scss'
-import 'jquery'
+// import 'jquery'
 import 'bootstrap' // load bootstrap after jquery to register it as a plugin
 
 if ('serviceWorker' in navigator) {
@@ -14,3 +14,5 @@ if ('serviceWorker' in navigator) {
       })
   })
 }
+
+console.log('Hello from app!')
