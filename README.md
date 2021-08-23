@@ -33,7 +33,9 @@ OR
 yarn env
 ```
 
-### `[webpack-dev-middleware] Error: EPERM: operation not permitted, lstat ...`
+### Errors
+
+#### `[webpack-dev-middleware] Error: EPERM: operation not permitted, lstat ...`
 ```
 yarn purge
 ```
