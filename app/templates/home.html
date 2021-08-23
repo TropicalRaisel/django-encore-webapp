@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load encore %}
+
+{% block title %}Home{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+  {% encore_entry_link_tags 'home' %}
+{% endblock %}
+
+{% block content %}
+  <h1>Hello World!</h1>
+  <h2>Tip: Check the console!</h2>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% encore_entry_script_tags 'home' %}
+{% endblock %}

@@ -14,6 +14,8 @@ Django & Webpack Encore
 1. `conda init powershell` (or the preferred shell)
 1. `conda env create -f environment.yml`
 1. `conda activate encore`
+1. Configure Django's database in core settings.
+1. `python manage.py migrate`
 
 ## Usage
 
