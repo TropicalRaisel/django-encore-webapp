@@ -3,30 +3,25 @@ from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
 from functools import lru_cache
-from os import path
-import json
+from pathlib import Path
+from json import load as serialize
 
 register = template.Library()
 
+def get_data_from_json_file(filepath: Path):
+  if filepath.is_file():
+    with open(filepath) as json:
+      return serialize(json)
+  else:
+    raise ImproperlyConfigured('File not found: {}'.format(filepath))
+
 @lru_cache(maxsize=32)
 def get_manifest_data():
-  filename = settings.ENCORE_MANIFEST_FILE
-
-  if not path.isfile(filename):
-    raise ImproperlyConfigured('The Encore manifest file is missing!')
-
-  with open(filename) as manifest:
-    return json.load(manifest)
+  return get_data_from_json_file(settings.ENCORE_MANIFEST_FILE)
 
 @lru_cache(maxsize=32)
 def get_entrypoint_data():
-  filename = settings.ENCORE_ENTRYPOINTS_FILE
-
-  if not path.isfile(filename):
-    raise ImproperlyConfigured('The Encore entrypoints file is missing!')
-
-  with open(filename) as entrypoints:
-    return json.load(entrypoints)['entrypoints']
+  return get_data_from_json_file(settings.ENCORE_ENTRYPOINTS_FILE)['entrypoints']
 
 # Extends the Encore library to add the missing tags:
 
