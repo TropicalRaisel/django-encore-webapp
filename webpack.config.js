@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore')
+const svgToMiniDataURI = require('mini-svg-data-uri')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
@@ -61,6 +62,30 @@ Encore
 
   // enables hashed filenames (e.g. app.abc123.css)
   .enableVersioning(Encore.isProduction())
+
+  .configureImageRule({
+    type: 'asset'
+  }, () => {
+    return {
+      test: /\.svg$/i,
+      type: 'asset/inline',
+      generator: {
+        dataUrl: content => {
+          content = content.toString()
+          return svgToMiniDataURI(content)
+        }
+      }
+    }
+  })
+
+  .configureFontRule({
+    type: 'asset'
+  })
+
+  .copyFiles({
+    from: './assets/images',
+    to: 'images/[path][name].[hash:8].[ext]'
+  })
 
   // enables @babel/preset-env polyfills
   .configureBabelPresetEnv((config) => {

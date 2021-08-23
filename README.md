@@ -42,3 +42,4 @@ yarn env
 ## References
 
 *   <https://ota-meshi.github.io/eslint-plugin-jsonc/rules/>
+*   <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>

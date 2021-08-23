@@ -127,6 +127,7 @@ STATICFILES_DIRS = [
 ]
 
 ENCORE_ENTRYPOINTS_FILE = STATICFILES_DIRS[0] / 'build/entrypoints.json'
+ENCORE_MANIFEST_FILE = STATICFILES_DIRS[0] / 'build/manifest.json'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
