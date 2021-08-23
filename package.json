@@ -1,11 +1,11 @@
 {
   "name": "webapp",
   "version": "1.0.0",
+  "private": true,
   "description": "Django & Webpack Encore",
   "repository": "https://github.com/TropicalRaisel/django-encore-webapp.git",
-  "author": "TropicalRaisel",
   "license": "MIT",
-  "private": true,
+  "author": "TropicalRaisel",
   "scripts": {
     "serve": "encore dev-server",
     "dev": "encore dev",
@@ -24,6 +24,12 @@
     "lint:py": "black app/ core/ --check",
     "fix:py": "isort --atomic . && black app/ core/",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:json && yarn lint:md"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@popperjs/core": "^2.9.3",
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^1.5.0",
@@ -54,11 +60,5 @@
     "stylelint-config-twbs-bootstrap": "^2.2.3",
     "stylelint-webpack-plugin": "^3.0.1",
     "workbox-webpack-plugin": "^6.2.4"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "@popperjs/core": "^2.9.3",
-    "bootstrap": "^5.1.0",
-    "jquery": "^3.6.0"
   }
 }
