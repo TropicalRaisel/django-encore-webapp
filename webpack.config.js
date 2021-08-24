@@ -4,6 +4,7 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
+const WebpackObfuscator = require('webpack-obfuscator')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -142,6 +143,10 @@ if (Encore.isDev()) {
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
       skipWaiting: true
+    }))
+
+    .addPlugin(new WebpackObfuscator({
+      rotateStringArray: true
     }))
 }
 
