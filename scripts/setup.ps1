@@ -21,7 +21,7 @@ if ($host.Name -eq 'ConsoleHost') {
     }
 }
 
-Clear-History # cls
+Clear-Host # cls
 
 # Install Scoop
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser # Will prompt to change the settings; choose "A"
