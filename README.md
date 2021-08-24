@@ -45,6 +45,8 @@ Otherwise, please report the issue.
 
 ## References
 
+*   <https://www.valentinog.com/blog/webpack-django/>
+*   <https://www.accordbox.com/blog/definitive-guide-django-and-webpack/>
 *   <https://symfony.com/doc/current/frontend.html#webpack-encore>
 *   <https://symfonycasts.com/screencast/webpack-encore>
 *   <https://github.com/webpack-contrib/postcss-loader#config-files>
