@@ -40,6 +40,8 @@ yarn env
 yarn purge
 ```
 Then you should be good to go!
+If the error persists from `CopyWebpackPlugin`, just delete the `public/build` directory and it should work.
+Otherwise, please report the issue.
 
 ## Notes
 
