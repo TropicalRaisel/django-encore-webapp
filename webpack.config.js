@@ -56,7 +56,9 @@ Encore
   .enableSourceMaps(!Encore.isProduction())
   .configureDevServerOptions((config) => {
     // fixes cors header issues
-    config.allowedHosts = 'all'
+    config.headers = {
+      'Access-Control-Allow-Origin': '*'
+    }
 
     // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
     delete config.client.host
