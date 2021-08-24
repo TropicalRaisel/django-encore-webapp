@@ -48,7 +48,16 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "htmlmin.middleware.HtmlMinifyMiddleware",
+    "htmlmin.middleware.MarkRequestMiddleware",
 ]
+
+# htmlmin settings
+
+HTML_MINIFY = True
+
+KEEP_COMMENTS_ON_MINIFYING = False
+
 
 ROOT_URLCONF = "core.urls"
 
