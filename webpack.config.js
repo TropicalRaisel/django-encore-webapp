@@ -3,6 +3,7 @@ const svgToMiniDataURI = require('mini-svg-data-uri')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const WebpackObfuscator = require('webpack-obfuscator')
 
@@ -136,6 +137,20 @@ if (Encore.isDev()) {
       fix: true,
       threads: true,
       cache: true
+    }))
+
+    .addPlugin(new CircularDependencyPlugin({
+      // exclude detection of files based on a RegExp
+      exclude: /node_modules/,
+      // include specific files based on a RegExp
+      // include: /javascripts/,
+      // add errors to webpack instead of warnings
+      failOnError: true
+      // allow import cycles that include an asyncronous import,
+      // e.g. via import(/* webpackMode: "weak" */ './file.js')
+      // allowAsyncCycles: false,
+      // set the current working directory for displaying module paths
+      // cwd: process.cwd()
     }))
 } else {
   Encore
