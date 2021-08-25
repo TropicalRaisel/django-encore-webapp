@@ -25,7 +25,7 @@ def get_manifest_data():
 
 @lru_cache(maxsize=32)
 def get_entrypoint_data():
-    return get_data_from_json_file(settings.ENCORE_ENTRYPOINTS_FILE)["entrypoints"]
+    return get_data_from_json_file(settings.ENCORE_ENTRYPOINTS_FILE)
 
 
 """
@@ -49,11 +49,25 @@ def asset(value):
 
 @register.simple_tag
 def encore_entry_link_tags(entry):
-    links = [f'<link rel="stylesheet" href="{url}">' for url in get_entrypoint_data()[entry]["css"]]
+    data = get_entrypoint_data()
+    entries = data["entrypoints"]
+
+    if 'integrity' in data:
+        links = ['<link rel="stylesheet" href="{}" integrity="{}" crossorigin="anonymous">'.format(url, data['integrity'][url]) for url in entries[entry]["css"]]
+    else:
+        links = [f'<link rel="stylesheet" href="{url}">' for url in entries[entry]["css"]]
+
     return mark_safe("\n".join(links))
 
 
 @register.simple_tag
 def encore_entry_script_tags(entry):
-    scripts = [f'<script src="{url}"></script>' for url in get_entrypoint_data()[entry]["js"]]
+    data = get_entrypoint_data()
+    entries = data["entrypoints"]
+
+    if 'integrity' in data:
+        scripts = ['<script src="{}" integrity="{}" crossorigin="anonymous"></script>'.format(url, data['integrity'][url]) for url in entries[entry]["js"]]
+    else:
+        scripts = [f'<script src="{url}"></script>' for url in entries[entry]["js"]]
+
     return mark_safe("\n".join(scripts))
