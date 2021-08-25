@@ -52,8 +52,13 @@ def encore_entry_link_tags(entry):
     data = get_entrypoint_data()
     entries = data["entrypoints"]
 
-    if 'integrity' in data:
-        links = ['<link rel="stylesheet" href="{}" integrity="{}" crossorigin="anonymous">'.format(url, data['integrity'][url]) for url in entries[entry]["css"]]
+    if "integrity" in data:
+        links = [
+            '<link rel="stylesheet" href="{}" integrity="{}" crossorigin="anonymous">'.format(
+                url, data["integrity"][url]
+            )
+            for url in entries[entry]["css"]
+        ]
     else:
         links = [f'<link rel="stylesheet" href="{url}">' for url in entries[entry]["css"]]
 
@@ -65,8 +70,11 @@ def encore_entry_script_tags(entry):
     data = get_entrypoint_data()
     entries = data["entrypoints"]
 
-    if 'integrity' in data:
-        scripts = ['<script src="{}" integrity="{}" crossorigin="anonymous"></script>'.format(url, data['integrity'][url]) for url in entries[entry]["js"]]
+    if "integrity" in data:
+        scripts = [
+            '<script src="{}" integrity="{}" crossorigin="anonymous"></script>'.format(url, data["integrity"][url])
+            for url in entries[entry]["js"]
+        ]
     else:
         scripts = [f'<script src="{url}"></script>' for url in entries[entry]["js"]]
 
