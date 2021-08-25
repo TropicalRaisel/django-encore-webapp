@@ -3,11 +3,11 @@
     "browser": true,
     "es2021": true,
     "node": true,
-    "jquery": true,
-    "commonjs": true
+    "jquery": true
   },
   "extends": [
     "standard",
+    "plugin:import/recommended",
     "plugin:jsonc/recommended-with-json"
   ],
   "parserOptions": {
