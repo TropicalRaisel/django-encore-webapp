@@ -2,6 +2,11 @@
 
 Django & Webpack Encore
 
+[![Dependencies Status](https://status.david-dm.org/gh/TropicalRaisel/django-encore-webapp.svg)](https://david-dm.org/TropicalRaisel/django-encore-webapp)
+[![Dev Dependencies Status](https://status.david-dm.org/gh/TropicalRaisel/django-encore-webapp.svg?type=dev)](https://david-dm.org/TropicalRaisel/django-encore-webapp?type=dev)
+
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
+
 ## Setup (Windows)
 
 Save the [Windows install script](https://raw.githubusercontent.com/TropicalRaisel/django-encore-webapp/main/scripts/setup.ps1) and run it to set everything up in one sitting!
