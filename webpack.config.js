@@ -127,13 +127,18 @@ Encore
   // uncomment if you're having problems with a jQuery plugin
   .autoProvidejQuery()
 
-  .addPlugin(new WebpackBar({
-    profile: true
-  }))
+if (!Encore.isDevServer()) {
+  Encore
 
-  .configureFriendlyErrorsPlugin((config) => {
-    config.logLevel = 'ERROR'
-  })
+    .addPlugin(new WebpackBar({
+      profile: true
+    }))
+
+    .addPlugin(new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      reportFilename: 'webpack-report.html'
+    }))
+}
 
 if (Encore.isDev()) {
   Encore
@@ -163,13 +168,12 @@ if (Encore.isDev()) {
       // set the current working directory for displaying module paths
       // cwd: process.cwd()
     }))
-
-    .addPlugin(new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      reportFilename: 'webpack-report.html'
-    }))
 } else {
   Encore
+
+    .configureFriendlyErrorsPlugin((config) => {
+      config.logLevel = 'ERROR'
+    })
 
     .addPlugin(new GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
