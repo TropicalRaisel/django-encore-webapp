@@ -13,6 +13,7 @@
     "build": "encore production --progress",
     "env": "conda env export -f environment.yml",
     "purge": "npm cache clean --force && yarn cache clean --force",
+    "stats": "webpack --profile --json > stats.json",
     "lint:md": "markdownlint-cli2 README.md && markdown-link-check README.md && markdown-table-formatter -c README.md",
     "fix:md": "markdownlint-cli2-fix README.md && markdown-table-formatter README.md",
     "lint:js": "eslint --ext .js --cache .",
@@ -63,6 +64,7 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-config-twbs-bootstrap": "^2.2.3",
     "stylelint-webpack-plugin": "^3.0.1",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-obfuscator": "^3.4.1",
     "workbox-webpack-plugin": "^6.2.4"
   }

@@ -4,6 +4,7 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const WebpackObfuscator = require('webpack-obfuscator')
 
@@ -123,6 +124,11 @@ Encore
 
   // uncomment if you're having problems with a jQuery plugin
   .autoProvidejQuery()
+
+  .addPlugin(new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    reportFilename: 'webpack-report.html'
+  }))
 
 if (Encore.isDev()) {
   Encore
