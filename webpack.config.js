@@ -125,11 +125,6 @@ Encore
   // uncomment if you're having problems with a jQuery plugin
   .autoProvidejQuery()
 
-  .addPlugin(new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    reportFilename: 'webpack-report.html'
-  }))
-
 if (Encore.isDev()) {
   Encore
 
@@ -157,6 +152,11 @@ if (Encore.isDev()) {
       // allowAsyncCycles: false,
       // set the current working directory for displaying module paths
       // cwd: process.cwd()
+    }))
+
+    .addPlugin(new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      reportFilename: 'webpack-report.html'
     }))
 } else {
   Encore
