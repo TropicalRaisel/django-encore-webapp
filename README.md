@@ -67,3 +67,4 @@ Otherwise, please report the issue.
 *   <https://github.com/vuejs/preload-webpack-plugin>
 *   <https://ota-meshi.github.io/eslint-plugin-jsonc/rules/>
 *   <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>
+*   <https://www.cloudhadoop.com/sass-as-division/>

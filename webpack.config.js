@@ -1,5 +1,6 @@
 const Encore = require('@symfony/webpack-encore')
 const svgToMiniDataURI = require('mini-svg-data-uri')
+const WebpackBar = require('webpackbar')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
@@ -125,6 +126,10 @@ Encore
 
   // uncomment if you're having problems with a jQuery plugin
   .autoProvidejQuery()
+
+  .addPlugin(new WebpackBar({
+    profile: true
+  }))
 
 if (Encore.isDev()) {
   Encore
