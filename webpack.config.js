@@ -76,8 +76,9 @@ Encore
       plugins: [
         ['gifsicle', { interlaced: true }],
         ['jpegtran', { progressive: true }],
-        ['optipng', { optimizationLevel: 5 }]
-        // ['svgo', { plugins: [{ removeViewBox: false }] }]
+        ['optipng', { optimizationLevel: 5 }],
+        // https://github.com/nuxt-community/imagemin-module/issues/28#issuecomment-886855337
+        ['svgo', { plugins: [{ name: 'removeViewBox', active: false }] }]
       ]
     }
   }))
