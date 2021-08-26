@@ -131,6 +131,10 @@ Encore
     profile: true
   }))
 
+  .configureFriendlyErrorsPlugin((config) => {
+    config.logLevel = 'ERROR'
+  })
+
 if (Encore.isDev()) {
   Encore
 
