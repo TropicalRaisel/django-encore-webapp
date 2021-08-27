@@ -15,6 +15,10 @@ Please review its changes to ensure they are acceptable. Run it like so:
 ./setup.ps1 GitHub-Username GitHub-Email
 ```
 
+## Setup (General)
+
+Create a copy of `.env.example` and rename it to `.env`.
+
 ## Usage
 
 ### Runtime

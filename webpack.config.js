@@ -51,11 +51,6 @@ Encore
    * https://symfony.com/doc/current/frontend.html#adding-more-features
    */
   .cleanupOutputBeforeBuild()
-  // .enableBuildNotifications()
-  .enableBuildCache({ config: [__filename] }, (cache) => {
-    cache.version = `${process.env.GIT_REV}`
-    cache.name = `${process.env.target}`
-  })
   .enableSourceMaps(!Encore.isProduction())
   .configureDevServerOptions((config) => {
     // fixes cors header issues
@@ -127,16 +122,29 @@ Encore
   // uncomment if you're having problems with a jQuery plugin
   .autoProvidejQuery()
 
-if (!Encore.isDevServer()) {
+if (Encore.isDevServer()) {
+  Encore
+
+    .enableBuildCache({ config: [__filename] }, (cache) => {
+      cache.version = `${process.env.GIT_REV}`
+      cache.name = `${process.env.target}`
+    })
+
+    .enableBuildNotifications()
+} else {
   Encore
 
     .addPlugin(new WebpackBar({
-      profile: true
+      color: 'lightblue',
+      profile: true,
+      basic: true
     }))
 
     .addPlugin(new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      reportFilename: 'webpack-report.html'
+      analyzerMode: Encore.isDev() ? 'static' : 'disabled',
+      reportFilename: 'webpack-report.html',
+      openAnalyzer: Encore.isDev(),
+      logLevel: 'warn'
     }))
 }
 
