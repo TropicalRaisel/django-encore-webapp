@@ -134,34 +134,30 @@ if (Encore.isDevServer()) {
 } else {
   Encore
 
-    .addPlugin(new WebpackBar({
-      color: 'lightblue',
-      profile: true,
-      basic: true
-    }))
-
     .addPlugin(new BundleAnalyzerPlugin({
       analyzerMode: Encore.isDev() ? 'static' : 'disabled',
       reportFilename: 'webpack-report.html',
       openAnalyzer: Encore.isDev(),
       logLevel: 'warn'
     }))
+
+    .addPlugin(new WebpackBar({
+      color: 'lightblue'
+    }))
 }
 
 if (Encore.isDev()) {
+  const linterConfig = {
+    fix: true,
+    cache: true,
+    threads: true
+  }
+
   Encore
 
-    .addPlugin(new ESLintWebpackPlugin({
-      fix: true,
-      threads: true,
-      cache: true
-    }))
+    .addPlugin(new ESLintWebpackPlugin(linterConfig))
 
-    .addPlugin(new StylelintWebpackPlugin({
-      fix: true,
-      threads: true,
-      cache: true
-    }))
+    .addPlugin(new StylelintWebpackPlugin(linterConfig))
 
     .addPlugin(new CircularDependencyPlugin({
       // exclude detection of files based on a RegExp
