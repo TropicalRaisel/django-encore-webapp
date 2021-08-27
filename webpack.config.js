@@ -1,6 +1,7 @@
 const Encore = require('@symfony/webpack-encore')
 const svgToMiniDataURI = require('mini-svg-data-uri')
 const WebpackBar = require('webpackbar')
+const OpenBrowserPlugin = require('webpack-open-browser-plugin')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
@@ -124,6 +125,10 @@ Encore
 
 if (Encore.isDevServer()) {
   Encore
+
+    .addPlugin(new OpenBrowserPlugin({
+      url: 'http://127.0.0.1:8000/'
+    }))
 
     .enableBuildCache({ config: [__filename] }, (cache) => {
       cache.version = `${process.env.GIT_REV}`

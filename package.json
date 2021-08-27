@@ -67,6 +67,7 @@
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-notifier": "^1.13.0",
     "webpack-obfuscator": "^3.4.1",
+    "webpack-open-browser-plugin": "^1.0.7",
     "webpackbar": "^5.0.0-3",
     "workbox-webpack-plugin": "^6.2.4"
   }
