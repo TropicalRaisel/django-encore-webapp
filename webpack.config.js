@@ -1,6 +1,7 @@
 const Encore = require('@symfony/webpack-encore')
 const svgToMiniDataURI = require('mini-svg-data-uri')
 const WebpackBar = require('webpackbar')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const OpenBrowserPlugin = require('webpack-open-browser-plugin')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
@@ -126,6 +127,8 @@ Encore
 if (Encore.isDevServer()) {
   Encore
 
+    .addPlugin(new DashboardPlugin())
+
     .addPlugin(new OpenBrowserPlugin({
       url: 'http://127.0.0.1:8000/'
     }))
@@ -135,7 +138,9 @@ if (Encore.isDevServer()) {
       cache.name = `${process.env.target}`
     })
 
-    .enableBuildNotifications()
+    .enableBuildNotifications(true, (config) => {
+      config.skipFirstNotification = true
+    })
 } else {
   Encore
 
