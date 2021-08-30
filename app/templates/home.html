@@ -1,10 +1,12 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load webpack_encore %}
-{% block title %}Home{% endblock %}
+{% block title %}
+    Home
+{% endblock title %}
 {% block styles %}
     {{ block.super }}
     {% encore_entry_link_tags 'home' %}
-{% endblock %}
+{% endblock styles %}
 {% block content %}
     <main class="container">
         <div class="bg-light p-5 rounded">
@@ -25,8 +27,8 @@
             </ul>
         </div>
     </main>
-{% endblock %}
+{% endblock content %}
 {% block scripts %}
     {{ block.super }}
     {% encore_entry_script_tags 'home' %}
-{% endblock %}
+{% endblock scripts %}

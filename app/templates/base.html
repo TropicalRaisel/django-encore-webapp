@@ -2,21 +2,21 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <link rel="shortcut icon" type="image/png" href="{% asset 'build/images/favicon.png' %}"/>
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="theme-color" content="#fff">
-        <meta name="application-name" content="webapp">
+        <meta name="mobile-web-app-capable" content="yes"/>
+        <meta name="theme-color" content="#fff"/>
+        <meta name="application-name" content="webapp"/>
         {% block styles %}
             <!-- {% encore_entry_link_tags 'app' %} -->
-        {% endblock %}
-        <title>{% block title %}{% endblock %}</title>
+        {% endblock styles %}
+        <title>{% block title %}{% endblock title %}</title>
     </head>
     <body>
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock content %}
         {% block scripts %}
             <!-- {% encore_entry_script_tags 'app' %} -->
-        {% endblock %}
+        {% endblock scripts %}
     </body>
 </html>

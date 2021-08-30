@@ -26,7 +26,8 @@
     "fix:py": "isort --atomic . && black app/ core/",
     "lint:html": "djlint app/templates",
     "fix:html": "djlint app/templates --reformat",
-    "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:html && yarn lint:json && yarn lint:md"
+    "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:html && yarn lint:json && yarn lint:md",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -72,6 +73,7 @@
     "webpack-obfuscator": "^3.4.1",
     "webpack-open-browser-plugin": "^1.0.7",
     "webpackbar": "^5.0.0-3",
-    "workbox-webpack-plugin": "^6.2.4"
+    "workbox-webpack-plugin": "^6.2.4",
+    "husky": "^7.0.0"
   }
 }
