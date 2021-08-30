@@ -24,6 +24,8 @@
     "fix:json": "eslint --ext .json --cache --fix .",
     "lint:py": "black app/ core/ --check",
     "fix:py": "isort --atomic . && black app/ core/",
+    "lint:html": "djlint app/templates",
+    "fix:html": "djlint app/templates --reformat",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:json && yarn lint:md"
   },
   "dependencies": {

@@ -1,33 +1,32 @@
 {% extends 'base.html' %}
-
 {% load webpack_encore %}
-
 {% block title %}Home{% endblock %}
-
 {% block styles %}
-  {{ block.super }}
-  {% encore_entry_link_tags 'home' %}
+    {{ block.super }}
+    {% encore_entry_link_tags 'home' %}
 {% endblock %}
-
 {% block content %}
-<main class="container">
-  <div class="bg-light p-5 rounded">
-    <h1>Hello World!</h1>
-    <p class="lead">Tip: Check the console!</p>
-    <h3>Font Awesome icons</h3>
-    <ul>
-      <li>
-        Brands: Facebook <i class="fab fa-facebook-square"></i>
-      </li>
-      <li>
-        Solid Style: Envelope <i class="fas fa-envelope-open"></i>
-      </li>
-    </ul>
-  </div>
-</main>
+    <main class="container">
+        <div class="bg-light p-5 rounded">
+            <h1>Hello World!</h1>
+            <p class="lead">
+                Tip: Check the console!
+            </p>
+            <h3>Font Awesome icons</h3>
+            <ul>
+                <li>
+                    Brands: Facebook
+                    <i class="fab fa-facebook-square"></i>
+                </li>
+                <li>
+                    Solid Style: Envelope
+                    <i class="fas fa-envelope-open"></i>
+                </li>
+            </ul>
+        </div>
+    </main>
 {% endblock %}
-
 {% block scripts %}
-  {{ block.super }}
-  {% encore_entry_script_tags 'home' %}
+    {{ block.super }}
+    {% encore_entry_script_tags 'home' %}
 {% endblock %}
