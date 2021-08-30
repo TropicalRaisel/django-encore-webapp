@@ -36,6 +36,7 @@ scoop install yarn miniconda3
 git clone https://github.com/TropicalRaisel/django-encore-webapp.git # Will prompt for GitHub signin; select the "manager-core" for each auth option
 cd django-encore-webapp
 
+yarn set version berry # Enable Yarn 2
 yarn # Configures all Webpack dependencies
 
 conda install -n root -c pscondaenvs pscondaenvs # Enables setting the conda environment from a CLI

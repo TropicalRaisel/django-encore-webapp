@@ -26,7 +26,7 @@
     "fix:py": "isort --atomic . && black app/ core/",
     "lint:html": "djlint app/templates",
     "fix:html": "djlint app/templates --reformat",
-    "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:json && yarn lint:md"
+    "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:html && yarn lint:json && yarn lint:md"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",

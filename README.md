@@ -15,6 +15,10 @@ Please review its changes to ensure they are acceptable. Run it like so:
 ./setup.ps1 GitHub-Username GitHub-Email
 ```
 
+## Setup (Other)
+
+Be sure to run `yarn set version berry` to enable Yarn 2!
+
 ## Setup (General)
 
 Create a copy of `.env.example` and rename it to `.env`.
@@ -72,3 +76,5 @@ Otherwise, please report the issue.
 *   <https://ota-meshi.github.io/eslint-plugin-jsonc/rules/>
 *   <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>
 *   <https://www.cloudhadoop.com/sass-as-division/>
+*   <https://yarnpkg.com/getting-started/migration>
+*   <https://blog.heroku.com/building-a-monorepo-with-yarn-2>
