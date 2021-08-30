@@ -16,8 +16,8 @@
     "stats": "webpack --profile --json > stats.json",
     "lint:md": "markdownlint-cli2 README.md && markdown-link-check README.md && markdown-table-formatter -c README.md",
     "fix:md": "markdownlint-cli2-fix README.md && markdown-table-formatter README.md",
-    "lint:js": "eslint --ext .js --cache .",
-    "fix:js": "eslint --ext .js --cache --fix .",
+    "lint:js": "eslint --ext .js,.jsx --cache .",
+    "fix:js": "eslint --ext .js,.jsx --cache --fix .",
     "lint:css": "stylelint --cache assets/styles/*.{css,scss,sass}",
     "fix:css": "stylelint --cache --fix assets/styles/*.{css,scss,sass}",
     "lint:json": "eslint --ext .json --cache .",
@@ -28,6 +28,15 @@
     "fix:html": "djlint app/templates --reformat",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:html && yarn lint:json && yarn lint:md",
     "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "*.{jx,jsx}": "yarn lint:js",
+    "*.{css,scss,sass}": "yarn lint:css",
+    "*.html": "yarn lint:html",
+    "*.md": "yarn lint:md",
+    "*.json": "yarn lint:json",
+    "*.py": "yarn lint:py",
+    "package.json": "sort-package-json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -48,6 +57,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-webpack-plugin": "^3.0.1",
     "file-loader": "^6.2.0",
+    "husky": "^7.0.0",
     "image-minimizer-webpack-plugin": "^2.2.0",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
@@ -63,6 +73,7 @@
     "postcss-loader": "5.0.0",
     "sass": "~1.32.12",
     "sass-loader": "^12.1.0",
+    "sort-package-json": "^1.50.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-config-twbs-bootstrap": "^2.2.3",
@@ -73,7 +84,6 @@
     "webpack-obfuscator": "^3.4.1",
     "webpack-open-browser-plugin": "^1.0.7",
     "webpackbar": "^5.0.0-3",
-    "workbox-webpack-plugin": "^6.2.4",
-    "husky": "^7.0.0"
+    "workbox-webpack-plugin": "^6.2.4"
   }
 }

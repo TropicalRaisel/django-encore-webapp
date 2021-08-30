@@ -4209,6 +4209,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"detect-indent@npm:^6.0.0":
+  version: 6.1.0
+  resolution: "detect-indent@npm:6.1.0"
+  checksum: ab953a73c72dbd4e8fc68e4ed4bfd92c97eb6c43734af3900add963fd3a9316f3bc0578b018b24198d4c31a358571eff5f0656e81a1f3b9ad5c547d58b2d093d
+  languageName: node
+  linkType: hard
+
+"detect-newline@npm:3.1.0":
+  version: 3.1.0
+  resolution: "detect-newline@npm:3.1.0"
+  checksum: ae6cd429c41ad01b164c59ea36f264a2c479598e61cba7c99da24175a7ab80ddf066420f2bec9a1c57a6bead411b4655ff15ad7d281c000a89791f48cbe939e7
+  languageName: node
+  linkType: hard
+
 "detect-node@npm:^2.0.4":
   version: 2.1.0
   resolution: "detect-node@npm:2.1.0"
@@ -5885,6 +5899,13 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"git-hooks-list@npm:1.0.3":
+  version: 1.0.3
+  resolution: "git-hooks-list@npm:1.0.3"
+  checksum: a1dd03d39c1d727ba08a35dbdbdcc6e96de8c4170c942dc95bf787ca6e34998d39fb5295a00242b58a3d265de0b69a0686d0cf583baa6b7830f268542c4576b9
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^5.1.2, glob-parent@npm:~5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -5957,6 +5978,22 @@ fsevents@~2.3.2:
   dependencies:
     type-fest: ^0.20.2
   checksum: e9e5624154261a3e5344d2105a94886c5f2ca48028fa8258cd7b9119c5f00cf2909392817bb2d162c9a1a31b55d9b2c14e8f2271c45a22f77806f5b9322541cf
+  languageName: node
+  linkType: hard
+
+"globby@npm:10.0.0":
+  version: 10.0.0
+  resolution: "globby@npm:10.0.0"
+  dependencies:
+    "@types/glob": ^7.1.1
+    array-union: ^2.1.0
+    dir-glob: ^3.0.1
+    fast-glob: ^3.0.3
+    glob: ^7.1.3
+    ignore: ^5.1.1
+    merge2: ^1.2.3
+    slash: ^3.0.0
+  checksum: fbff58d2fcaedd9207901f6e3b5341ff885b6d499c3a095f7befde0fd03ec1ea634452a82f81e894e46f6a5d704da44b842ba93066f90dced52adf84d4b8d1cc
   languageName: node
   linkType: hard
 
@@ -6454,6 +6491,15 @@ fsevents@~2.3.2:
   dependencies:
     ms: ^2.0.0
   checksum: 9c7a74a2827f9294c009266c82031030eae811ca87b0da3dceb8d6071b9bde22c9f3daef0469c3c533cc67a97d8a167cd9fc0389350e5f415f61a79b171ded16
+  languageName: node
+  linkType: hard
+
+"husky@npm:^7.0.0":
+  version: 7.0.2
+  resolution: "husky@npm:7.0.2"
+  bin:
+    husky: lib/bin.js
+  checksum: 2ccfe6ddc51dc05ae8ea1e2fbb893344e93a813e00c595d6b5f5e704b7b998d6b0e2adda7c57f99b5e46a60dc07c7d860269a2ea91661c6bacef0eca8e0b8e96
   languageName: node
   linkType: hard
 
@@ -7169,17 +7215,17 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"is-plain-obj@npm:2.1.0, is-plain-obj@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "is-plain-obj@npm:2.1.0"
+  checksum: cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
+  languageName: node
+  linkType: hard
+
 "is-plain-obj@npm:^1.0.0, is-plain-obj@npm:^1.1.0":
   version: 1.1.0
   resolution: "is-plain-obj@npm:1.1.0"
   checksum: 0ee04807797aad50859652a7467481816cbb57e5cc97d813a7dcd8915da8195dc68c436010bf39d195226cde6a2d352f4b815f16f26b7bf486a5754290629931
-  languageName: node
-  linkType: hard
-
-"is-plain-obj@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "is-plain-obj@npm:2.1.0"
-  checksum: cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
   languageName: node
   linkType: hard
 
@@ -11710,6 +11756,29 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"sort-object-keys@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "sort-object-keys@npm:1.1.3"
+  checksum: abea944d6722a1710a1aa6e4f9509da085d93d5fc0db23947cb411eedc7731f80022ce8fa68ed83a53dd2ac7441fcf72a3f38c09b3d9bbc4ff80546aa2e151ad
+  languageName: node
+  linkType: hard
+
+"sort-package-json@npm:^1.50.0":
+  version: 1.50.0
+  resolution: "sort-package-json@npm:1.50.0"
+  dependencies:
+    detect-indent: ^6.0.0
+    detect-newline: 3.1.0
+    git-hooks-list: 1.0.3
+    globby: 10.0.0
+    is-plain-obj: 2.1.0
+    sort-object-keys: ^1.1.3
+  bin:
+    sort-package-json: cli.js
+  checksum: c00834b2d496df86da86c54c5a51e25687318e74c177074f4e073a901d903780e821b8c2db44cf20ddc34e2482579e60b54e2325ee7d601c2f7ca73600d341cb
+  languageName: node
+  linkType: hard
+
 "source-list-map@npm:^2.0.0, source-list-map@npm:^2.0.1":
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
@@ -13254,6 +13323,7 @@ fsevents@~2.3.2:
     eslint-plugin-promise: ^5.1.0
     eslint-webpack-plugin: ^3.0.1
     file-loader: ^6.2.0
+    husky: ^7.0.0
     image-minimizer-webpack-plugin: ^2.2.0
     imagemin-gifsicle: ^7.0.0
     imagemin-jpegtran: ^7.0.0
@@ -13270,6 +13340,7 @@ fsevents@~2.3.2:
     postcss-loader: 5.0.0
     sass: ~1.32.12
     sass-loader: ^12.1.0
+    sort-package-json: ^1.50.0
     stylelint: ^13.13.1
     stylelint-config-standard: ^22.0.0
     stylelint-config-twbs-bootstrap: ^2.2.3
