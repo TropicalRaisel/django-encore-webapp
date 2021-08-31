@@ -32,9 +32,10 @@ honcho start
 
 ### Update Python Dependencies
 ```
-conda env export -f environment.yml
+conda update --all
 ```
-OR
+
+### Export Python Dependencies
 ```
 yarn env
 ```
