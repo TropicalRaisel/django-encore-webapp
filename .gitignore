@@ -59,9 +59,6 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
-# Optional stylelint cache
-.stylelintcache
-
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
@@ -285,3 +282,8 @@ cython_debug/
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,node,sass,visualstudiocode
+
+## Custom
+
+.stylelintcache
+.husky/
