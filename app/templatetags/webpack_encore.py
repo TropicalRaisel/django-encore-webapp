@@ -28,6 +28,18 @@ def get_entrypoint_data():
     return get_data_from_json_file(settings.ENCORE_ENTRYPOINTS_FILE)
 
 
+def handle_entrypoint_data(entry, data_type: str, development_fmt: str, production_fmt: str):
+    data = get_entrypoint_data()
+    entrypoint = data["entrypoints"][entry][data_type]
+
+    if "integrity" in data:
+        tags = [production_fmt.format(url, data["integrity"][url]) for url in entrypoint]
+    else:
+        tags = [development_fmt.format(url) for url in entrypoint]
+
+    return mark_safe("\n".join(tags))
+
+
 """
  Adds these missing tags to interact with Webpack Encore:
 
@@ -49,33 +61,16 @@ def asset(value):
 
 @register.simple_tag
 def encore_entry_link_tags(entry):
-    data = get_entrypoint_data()
-    entries = data["entrypoints"]
-
-    if "integrity" in data:
-        links = [
-            '<link rel="stylesheet" href="{}" integrity="{}" crossorigin="anonymous">'.format(
-                url, data["integrity"][url]
-            )
-            for url in entries[entry]["css"]
-        ]
-    else:
-        links = [f'<link rel="stylesheet" href="{url}">' for url in entries[entry]["css"]]
-
-    return mark_safe("\n".join(links))
+    return handle_entrypoint_data(
+        entry,
+        "css",
+        '<link rel="stylesheet" href="{}">',
+        '<link rel="stylesheet" href="{}" integrity="{}" crossorigin="anonymous">',
+    )
 
 
 @register.simple_tag
 def encore_entry_script_tags(entry):
-    data = get_entrypoint_data()
-    entries = data["entrypoints"]
-
-    if "integrity" in data:
-        scripts = [
-            '<script src="{}" integrity="{}" crossorigin="anonymous"></script>'.format(url, data["integrity"][url])
-            for url in entries[entry]["js"]
-        ]
-    else:
-        scripts = [f'<script src="{url}"></script>' for url in entries[entry]["js"]]
-
-    return mark_safe("\n".join(scripts))
+    return handle_entrypoint_data(
+        entry, "js", '<script src="{}"></script>', '<script src="{}" integrity="{}" crossorigin="anonymous"></script>'
+    )
