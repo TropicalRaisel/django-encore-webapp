@@ -1557,9 +1557,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@symfony/webpack-encore@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@symfony/webpack-encore@npm:1.5.0"
+"@symfony/webpack-encore@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@symfony/webpack-encore@npm:1.6.0"
   dependencies:
     "@babel/core": ^7.7.0
     "@babel/plugin-syntax-dynamic-import": ^7.0.0
@@ -1587,7 +1587,7 @@ __metadata:
     yargs-parser: ^20.2.4
   bin:
     encore: bin/encore.js
-  checksum: c341d800c27c8fc7bcfd81a154a395fa1130a8e8ef8f5d3807036ca08da667a8e838faff1bb963381c12bfea7d815f886a4edb0e50b20c07dbbc8226db706dc1
+  checksum: 0d44ec2efef87a59e9886bfda1b1486950922088d533f022ecefe7d62be520f6eb99f033f87599c67089c4acb2f021c954581d1afcecf1e1e8bbe100eb8ea7ac
   languageName: node
   linkType: hard
 
@@ -3665,6 +3665,13 @@ __metadata:
     browserslist: ^4.16.8
     semver: 7.0.0
   checksum: 165736493ea73d4cb1f7bfe5733f2a1b9993de3bf9a453756176d91e503a67b42fe9d7c268907b11f4c1c2c87d659db5677cbc89f2503ac61dbfa70f5c88f957
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.16.4":
+  version: 3.16.4
+  resolution: "core-js@npm:3.16.4"
+  checksum: 6f1b82b0b9ef5bc818133b9f5f5e83cdd15f83a2fd56f9ee7edc9a29f183e74c00413e84febe07c2e2f04f55edc031b8ed7c1188f9540e97abd9bc7a20f7a9de
   languageName: node
   linkType: hard
 
@@ -6494,7 +6501,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"husky@npm:^7.0.0":
+"husky@npm:^7.0.2":
   version: 7.0.2
   resolution: "husky@npm:7.0.2"
   bin:
@@ -10038,17 +10045,17 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"postcss-loader@npm:5.0.0":
-  version: 5.0.0
-  resolution: "postcss-loader@npm:5.0.0"
+"postcss-loader@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "postcss-loader@npm:6.1.1"
   dependencies:
     cosmiconfig: ^7.0.0
     klona: ^2.0.4
-    semver: ^7.3.4
+    semver: ^7.3.5
   peerDependencies:
     postcss: ^7.0.0 || ^8.0.1
     webpack: ^5.0.0
-  checksum: a4fd15ab42554e4523ada94d65b975431ad5af138db4ab5967ac7c89be221fe8459b051716c391f78896d801b69724d6d927f0a03cc101c9b950d15e9496aeca
+  checksum: 3c32d123813efeaede39cbd990a5c2275d0feeb3e3d2b9ad8f0bbf37e1e6d28f24d3174e4eebe9db4f563d57052dc9b5fb3f699f7527f639769d88e907a99490
   languageName: node
   linkType: hard
 
@@ -13310,10 +13317,11 @@ fsevents@~2.3.2:
   dependencies:
     "@fortawesome/fontawesome-free": ^5.15.4
     "@popperjs/core": ^2.9.3
-    "@symfony/webpack-encore": ^1.5.0
+    "@symfony/webpack-encore": 1.6.0
     autoprefixer: ^10.3.3
     bootstrap: ^5.1.0
     circular-dependency-plugin: ^5.2.2
+    core-js: ^3.16.4
     eslint: ^7.32.0
     eslint-config-standard: ^16.0.3
     eslint-import-resolver-webpack: ^0.13.1
@@ -13323,7 +13331,7 @@ fsevents@~2.3.2:
     eslint-plugin-promise: ^5.1.0
     eslint-webpack-plugin: ^3.0.1
     file-loader: ^6.2.0
-    husky: ^7.0.0
+    husky: ^7.0.2
     image-minimizer-webpack-plugin: ^2.2.0
     imagemin-gifsicle: ^7.0.0
     imagemin-jpegtran: ^7.0.0
@@ -13337,7 +13345,7 @@ fsevents@~2.3.2:
     markdownlint-cli2: ^0.3.0
     mini-svg-data-uri: ^1.3.3
     npm-check-updates: ^11.8.3
-    postcss-loader: 5.0.0
+    postcss-loader: ^6.1.1
     sass: ~1.32.12
     sass-loader: ^12.1.0
     sort-package-json: ^1.50.0
