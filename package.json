@@ -27,7 +27,7 @@
     "lint:html": "djlint app/templates",
     "fix:html": "djlint app/templates --reformat",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:html && yarn lint:json && yarn lint:md",
-    "postinstall": "husky install && yarn dlx husky set .husky/pre-commit \"yarn dlx lint-staged\""
+    "postinstall": "husky install && husky set .husky/pre-commit \"yarn dlx lint-staged\""
   },
   "lint-staged": {
     "*.{js,jsx}": "yarn lint:js",
