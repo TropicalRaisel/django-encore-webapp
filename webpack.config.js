@@ -2,6 +2,9 @@ const Encore = require('@symfony/webpack-encore');
 const Path = require('path')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const svgToMiniDataURI = require('mini-svg-data-uri')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
+const WebpackObfuscator = require('webpack-obfuscator')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -45,10 +48,6 @@ Encore
      * https://symfony.com/doc/current/frontend.html#adding-more-features
      */
     .cleanupOutputBeforeBuild()
-    .enableSourceMaps(!Encore.isProduction())
-
-    // enables hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(Encore.isProduction())
 
     .addPlugin(new ImageMinimizerPlugin({
       minimizerOptions: {
@@ -106,6 +105,10 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
+
+    .addPlugin(new CircularDependencyPlugin({
+      failOnError: true
+    }))
 ;
 
 if (Encore.isDevServer()) {
@@ -135,9 +138,42 @@ if (Encore.isDevServer()) {
       }
     })
 
+    .enableBuildCache({ config: [__filename] }, (cache) => {
+      cache.version = `${process.env.GIT_REV}`
+      cache.name = `${process.env.target}`
+    })
+
     .enableBuildNotifications(true, (options) => {
       options.skipFirstNotification = true
     })
+}
+
+if (Encore.isDev()) {
+  const linterConfig = {
+    fix: true,
+    cache: true,
+    threads: true
+  }
+
+  Encore
+
+    .enableSourceMaps()
+} else {
+  Encore
+
+    // enables hashed filenames (e.g. app.abc123.css)
+    .enableVersioning()
+
+    .addPlugin(new GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true
+    }))
+
+    .addPlugin(new WebpackObfuscator({
+      rotateStringArray: true
+    }))
 }
 
 module.exports = Encore.getWebpackConfig();
