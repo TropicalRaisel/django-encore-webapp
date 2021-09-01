@@ -1,7 +1,7 @@
-import './app.js'
-import '../styles/home.scss'
-import $ from 'jquery'
+import $ from 'jquery';
+import './app.js';
+import '../styles/home.scss';
 
-$(document).ready(function () {
-  console.log('Hello from home!')
-})
+$(document).ready(() => {
+  console.log('Hello from home!');
+});
