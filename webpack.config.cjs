@@ -3,6 +3,7 @@ const Path = require('path')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const svgToMiniDataURI = require('mini-svg-data-uri')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const WebpackObfuscator = require('webpack-obfuscator')
 
@@ -96,6 +97,9 @@ Encore
     // enables Sass/SCSS support
     .enableSassLoader()
 
+    // enables CSS & polyfill support alongside Sass
+    .enablePostCssLoader()
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
@@ -148,12 +152,15 @@ if (Encore.isDev()) {
   const linterConfig = {
     fix: true,
     cache: true,
+    cacheLocation: './.cache/',
     threads: true
   }
 
   Encore
 
     .enableSourceMaps()
+
+    .addPlugin(new StylelintPlugin(linterConfig))
 } else {
   Encore
 
