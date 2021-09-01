@@ -81,17 +81,7 @@ Encore
   })
 
   .configureFontRule({
-    enabled: false
-  })
-
-  .addLoader({
-    test: /\.(eot|otf)$/i,
     type: 'asset'
-  })
-
-  .addLoader({
-    test: /\.(ttf|woff|woff2)$/i,
-    type: 'asset/inline'
   })
 
   .copyFiles({
