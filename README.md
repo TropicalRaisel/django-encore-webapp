@@ -9,10 +9,29 @@ Django & Webpack Encore
 
 ## Setup (Windows)
 
-Save the [Windows install script](https://raw.githubusercontent.com/TropicalRaisel/django-encore-webapp/main/scripts/setup.ps1) and run it to set everything up in one sitting!
-Please review its changes to ensure they are acceptable. Run it like so:
 ```powershell
-./setup.ps1 GitHub-Username GitHub-Email
+# Install Scoop
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser # Will prompt to change the settings; choose "A"
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+
+scoop install git # Needs to be installed before anything else
+git config --global user.name "Username"
+git config --global user.email "Email"
+scoop install aria2 # Install to speed up future downloads
+scoop install yarn miniconda3
+
+git clone https://github.com/TropicalRaisel/django-encore-webapp.git # Will prompt for GitHub signin; select the "manager-core" for each auth option
+cd django-encore-webapp
+
+yarn set version berry # Enable Yarn 2
+yarn # Configures all Webpack dependencies
+
+conda install -n root -c pscondaenvs pscondaenvs # Enables setting the conda environment from a CLI
+conda init powershell # Set the target CLI environment to powershell
+# RESTART POWERSHELL
+conda env create -f environment.yml
+conda activate encore
+python manage.py migrate # Only applied to the sample SQLite DB
 ```
 
 ## Setup (General)
