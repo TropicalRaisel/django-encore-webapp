@@ -1,5 +1,7 @@
 const Encore = require('@symfony/webpack-encore');
 const Path = require('path')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const svgToMiniDataURI = require('mini-svg-data-uri')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -13,7 +15,7 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
-    .setManifestKeyPrefix('build/')
+    // .setManifestKeyPrefix('build/')
 
     /*
      * ENTRY CONFIG
@@ -43,35 +45,48 @@ Encore
      * https://symfony.com/doc/current/frontend.html#adding-more-features
      */
     .cleanupOutputBeforeBuild()
-    .enableBuildNotifications(true, (options) => {
-      options.skipFirstNotification = true
-    })
     .enableSourceMaps(!Encore.isProduction())
-    .configureDevServerOptions((options) => {
-      // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
-      delete options.client.host
 
-      // fixes cors header issues
-      options.headers = {
-        'Access-Control-Allow-Origin': '*'
-      }
-
-      options.static = {
-        directory: Path.join(__dirname, 'assets'),
-        staticOptions: {
-          index: 'views/index.html'
-        }
-      }
-
-      options.open = {
-        target: ['/'],
-        app: {
-          name: 'chrome'
-        }
-      }
-    })
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
+
+    .addPlugin(new ImageMinimizerPlugin({
+      minimizerOptions: {
+        // Lossless optimization with custom option
+        // Feel free to experiment with options for better result for you
+        plugins: [
+          ['gifsicle', { interlaced: true }],
+          ['jpegtran', { progressive: true }],
+          ['optipng', { optimizationLevel: 5 }],
+          // https://github.com/nuxt-community/imagemin-module/issues/28#issuecomment-886855337
+          ['svgo', { plugins: [{ name: 'removeViewBox', active: false }] }]
+        ]
+      }
+    }))
+
+    .configureImageRule({
+      type: 'asset'
+    }, () => {
+      return {
+        test: /\.svg$/i,
+        type: 'asset/inline',
+        generator: {
+          dataUrl: content => {
+            content = content.toString()
+            return svgToMiniDataURI(content)
+          }
+        }
+      }
+    })
+
+    .configureFontRule({
+      type: 'asset'
+    })
+
+    .copyFiles({
+      from: './assets/images',
+      to: 'images/[path][name].[hash:8].[ext]'
+    })
 
     // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
@@ -92,5 +107,37 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
 ;
+
+if (Encore.isDevServer()) {
+  Encore
+
+    .configureDevServerOptions((options) => {
+      // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
+      delete options.client.host
+
+      // fixes cors header issues
+      options.headers = {
+        'Access-Control-Allow-Origin': '*'
+      }
+
+      options.static = {
+        directory: Path.join(__dirname, 'assets'),
+        staticOptions: {
+          index: 'views/index.html'
+        }
+      }
+
+      options.open = {
+        target: ['/', 'http://127.0.0.1:8000/'],
+        app: {
+          name: 'chrome'
+        }
+      }
+    })
+
+    .enableBuildNotifications(true, (options) => {
+      options.skipFirstNotification = true
+    })
+}
 
 module.exports = Encore.getWebpackConfig();
