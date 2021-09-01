@@ -1,4 +1,4 @@
-import './app'
+import './app.js'
 import '../styles/home.scss'
 import $ from 'jquery'
 

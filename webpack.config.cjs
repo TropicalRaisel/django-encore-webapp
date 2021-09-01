@@ -99,10 +99,6 @@ Encore
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
-    // uncomment to get integrity="..." attributes on your script & link tags
-    // requires WebpackEncoreBundle 1.4 or higher
-    .enableIntegrityHashes(Encore.isProduction())
-
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
 
@@ -164,6 +160,10 @@ if (Encore.isDev()) {
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning()
 
+    // uncomment to get integrity="..." attributes on your script & link tags
+    // requires WebpackEncoreBundle 1.4 or higher
+    .enableIntegrityHashes()
+
     .addPlugin(new GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
       // and not allow any straggling "old" SWs to hang around
@@ -176,4 +176,4 @@ if (Encore.isDev()) {
     }))
 }
 
-module.exports = Encore.getWebpackConfig();
+module.exports = Encore.getWebpackConfig()
