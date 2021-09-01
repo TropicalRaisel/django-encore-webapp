@@ -298,3 +298,6 @@ cython_debug/
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/yarn,python,node,sass,visualstudiocode
+
+# Custom
+.husky/
