@@ -15,12 +15,11 @@ Please review its changes to ensure they are acceptable. Run it like so:
 ./setup.ps1 GitHub-Username GitHub-Email
 ```
 
-## Setup (Other)
-
-Be sure to run `yarn set version berry` to enable Yarn 2!
-
 ## Setup (General)
-
+```bash
+yarn set version berry  # Enable Yarn 2!
+yarn sdks vscode  # Or your choice IDE
+```
 Create a copy of `.env.example` and rename it to `.env`.
 
 ## Usage
