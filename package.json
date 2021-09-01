@@ -1,7 +1,11 @@
 {
   "name": "django-encore-webapp",
+  "version": "2.0.0",
   "private": true,
+  "description": "Django & Webpack Encore",
+  "repository": "https://github.com/TropicalRaisel/django-encore-webapp.git",
   "license": "MIT",
+  "author": "TropicalRaisel",
   "type": "module",
   "scripts": {
     "postinstall": "husky install && husky set .husky/pre-commit \"yarn dlx lint-staged\"",
