@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/python,node,sass,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,node,sass,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/yarn,python,node,sass,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,python,node,sass,visualstudiocode
 
 ### Node ###
 # Logs
@@ -281,9 +281,20 @@ cython_debug/
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/python,node,sass,visualstudiocode
+### yarn ###
+# https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
 
-## Custom
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 
-.stylelintcache
-.husky/
+# if you are NOT using Zero-installs, then:
+# comment the following lines
+!.yarn/cache
+
+# and uncomment the following lines
+# .pnp.*
+
+# End of https://www.toptal.com/developers/gitignore/api/yarn,python,node,sass,visualstudiocode

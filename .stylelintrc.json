@@ -1,9 +1,0 @@
-{
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-twbs-bootstrap/scss"
-  ],
-  "rules": {
-    "string-quotes": "single"
-  }
-}
