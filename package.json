@@ -22,10 +22,10 @@
     "fix:css": "yarn lint:css --fix",
     "lint:py": "black app/ core/ --check",
     "fix:py": "isort --atomic . && black app/ core/",
-    "lint:html": "djlint app/templates",
+    "lint:html": "djlint app/templates --check",
     "fix:html": "djlint app/templates --reformat",
-    "lint:json": "eslint --ext .json --cache .",
-    "fix:json": "eslint --ext .json --cache --fix .",
+    "lint:json": "eslint --ext .json --cache --cache-location ./.cache/ .",
+    "fix:json": "yarn lint:json --fix .",
     "lint:md": "markdownlint-cli2 README.md && markdown-link-check README.md && markdown-table-formatter -c README.md",
     "fix:md": "markdownlint-cli2-fix README.md && markdown-table-formatter README.md",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:py && yarn lint:html && yarn lint:json && yarn lint:md"
