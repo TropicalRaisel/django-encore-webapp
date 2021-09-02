@@ -24,6 +24,7 @@ git clone "https://github.com/TropicalRaisel/django-encore-webapp.git" # Will pr
 cd django-encore-webapp
 
 yarn set version berry # Enable Yarn 2
+yarn config set --home enableTelemetry 0 # Disable Yarn telemetry data
 yarn # Configures all Webpack dependencies
 
 conda install -n root -c pscondaenvs pscondaenvs # Enables setting the conda environment from a CLI
@@ -37,6 +38,7 @@ python manage.py migrate # Only applied to the sample SQLite DB
 ## Setup (General)
 ```bash
 yarn set version berry  # Enable Yarn 2!
+yarn config set --home enableTelemetry 0 # Disable Yarn telemetry data
 yarn sdks vscode  # Or your choice IDE
 ```
 Create a copy of `.env.example` and rename it to `.env`.
