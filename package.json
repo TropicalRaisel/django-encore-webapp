@@ -14,7 +14,7 @@
     "watch": "encore dev --watch",
     "build": "encore production --progress",
     "env": "conda env export -f environment.yml",
-    "purge": "npm cache clean --force && yarn cache clean --force",
+    "purge": "npm cache clean --force && yarn cache clean --all",
     "stats": "webpack --profile --json > stats.json",
     "lint:js": "eslint --ext .js,.cjs,.jsx --cache --cache-location ./.cache/ .",
     "fix:js": "yarn lint:js --fix",
