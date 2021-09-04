@@ -1503,9 +1503,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@symfony/webpack-encore@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "@symfony/webpack-encore@npm:1.6.0"
+"@symfony/webpack-encore@npm:1.6.1":
+  version: 1.6.1
+  resolution: "@symfony/webpack-encore@npm:1.6.1"
   dependencies:
     "@babel/core": ^7.7.0
     "@babel/plugin-syntax-dynamic-import": ^7.0.0
@@ -1529,11 +1529,11 @@ __metadata:
     tmp: ^0.2.1
     webpack: ^5.35
     webpack-cli: ^4
-    webpack-dev-server: ^4.0.0-beta.0
+    webpack-dev-server: ^4.0.0
     yargs-parser: ^20.2.4
   bin:
     encore: bin/encore.js
-  checksum: 0d44ec2efef87a59e9886bfda1b1486950922088d533f022ecefe7d62be520f6eb99f033f87599c67089c4acb2f021c954581d1afcecf1e1e8bbe100eb8ea7ac
+  checksum: e9b4efec1f77772171596abf68448b87f8faa81931fafa2b8a973b8ff084f7206f422f94eb2a3efbd871a165b7d1a514ef5ebd3b384c46a8e2916d351278bc6d
   languageName: node
   linkType: hard
 
@@ -4295,7 +4295,7 @@ __metadata:
     "@babel/preset-env": ^7.15.0
     "@fortawesome/fontawesome-free": ^5.15.4
     "@popperjs/core": ^2.9.3
-    "@symfony/webpack-encore": ^1.6.0
+    "@symfony/webpack-encore": 1.6.1
     "@yarnpkg/sdks": ^2.4.2-rc.2
     autoprefixer: ^10.3.3
     bootstrap: ^5.1.0
@@ -12806,7 +12806,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:^4.0.0-beta.0":
+"webpack-dev-server@npm:^4.0.0":
   version: 4.1.0
   resolution: "webpack-dev-server@npm:4.1.0"
   dependencies:
