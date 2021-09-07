@@ -1,5 +1,5 @@
+const { join } = require('path')
 const Encore = require('@symfony/webpack-encore')
-const Path = require('path')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const svgToMiniDataURI = require('mini-svg-data-uri')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
@@ -15,11 +15,11 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
-// directory where compiled assets will be stored
+  // directory where compiled assets will be stored
   .setOutputPath('public/build/')
-// public path used by the web server to access the output path
+  // public path used by the web server to access the output path
   .setPublicPath('/build')
-// only needed for CDN's or sub-directory deploy
+  // only needed for CDN's or sub-directory deploy
   .setManifestKeyPrefix('build/')
 
   /*
@@ -33,13 +33,13 @@ Encore
    */
   .addEntry('app', './assets/javascripts/app.js')
   .addEntry('home', './assets/javascripts/home.js')
-// .addEntry('page2', './assets/page2.js')
+  // .addEntry('page2', './assets/page2.js')
 
-// When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
+  // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
   .splitEntryChunks()
 
-// will require an extra script tag for runtime.js
-// but, you probably want this, unless you're building a single-page app
+  // will require an extra script tag for runtime.js
+  // but, you probably want this, unless you're building a single-page app
   .enableSingleRuntimeChunk()
 
   /*
@@ -89,22 +89,22 @@ Encore
     to: 'images/[path][name].[hash:8].[ext]'
   })
 
-// enables @babel/preset-env polyfills
+  // enables @babel/preset-env polyfills
   .configureBabelPresetEnv((config) => {
     config.useBuiltIns = 'usage'
     config.corejs = 3
   })
 
-// enables Sass/SCSS support
+  // enables Sass/SCSS support
   .enableSassLoader()
 
-// enables CSS & polyfill support alongside Sass
+  // enables CSS & polyfill support alongside Sass
   .enablePostCssLoader()
 
 // uncomment if you use TypeScript
 // .enableTypeScriptLoader()
 
-// uncomment if you're having problems with a jQuery plugin
+  // uncomment if you're having problems with a jQuery plugin
   .autoProvidejQuery()
 
   .addPlugin(new CircularDependencyPlugin({
@@ -114,20 +114,40 @@ Encore
 if (Encore.isDevServer()) {
   Encore
 
+    .enableBuildNotifications(true, (options) => {
+      options.skipFirstNotification = true
+    })
+
     .configureDevServerOptions((options) => {
       // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
-      delete options.client.host
+      // delete options.client.host
+
+      /**
+       * Normalize "options.static" property to an array
+       */
+      if (!options.static) {
+        options.static = []
+      } else if (!Array.isArray(options.static)) {
+        options.static = [options.static]
+      }
+
+      /**
+       * Enable live reload and add views directory
+       */
+      options.liveReload = true
+      options.static.push({
+        directory: join(__dirname, './app/templates'),
+        watch: true
+      }).push({
+        directory: join(__dirname, 'assets'),
+        staticOptions: {
+          index: 'views/index.html'
+        }
+      })
 
       // fixes cors header issues
       options.headers = {
         'Access-Control-Allow-Origin': '*'
-      }
-
-      options.static = {
-        directory: Path.join(__dirname, 'assets'),
-        staticOptions: {
-          index: 'views/index.html'
-        }
       }
 
       options.open = {
@@ -141,10 +161,6 @@ if (Encore.isDevServer()) {
     .enableBuildCache({ config: [__filename] }, (cache) => {
       cache.version = `${process.env.GIT_REV}`
       cache.name = `${process.env.target}`
-    })
-
-    .enableBuildNotifications(true, (options) => {
-      options.skipFirstNotification = true
     })
 }
 
