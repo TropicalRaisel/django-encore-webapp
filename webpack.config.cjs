@@ -132,13 +132,16 @@ if (Encore.isDevServer()) {
       }
 
       /**
-       * Enable live reload and add views directory
+       * Enable live reload and watch view directories
        */
       options.liveReload = true
+
       options.static.push({
         directory: join(__dirname, './app/templates'),
         watch: true
-      }).push({
+      })
+
+      options.static.push({
         directory: join(__dirname, 'assets'),
         staticOptions: {
           index: 'views/index.html'
