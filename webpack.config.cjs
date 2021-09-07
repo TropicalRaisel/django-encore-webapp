@@ -54,7 +54,7 @@ Encore
   .addPlugin(new ImageMinimizerPlugin({
     minimizerOptions: {
       // Lossless optimization with custom option
-      // Feel free to experiment with options for better result for you
+      // Feel free to experiment with options
       plugins: [
         ['gifsicle', { interlaced: true }],
         ['jpegtran', { progressive: true }],
@@ -118,6 +118,11 @@ if (Encore.isDevServer()) {
       options.skipFirstNotification = true
     })
 
+    .enableBuildCache({ config: [__filename] }, (cache) => {
+      cache.version = `${process.env.GIT_REV}`
+      cache.name = `${process.env.target}`
+    })
+
     .configureDevServerOptions((options) => {
       // https://github.com/symfony/webpack-encore/issues/1017#issuecomment-887264214
       // delete options.client.host
@@ -159,11 +164,6 @@ if (Encore.isDevServer()) {
           name: 'chrome'
         }
       }
-    })
-
-    .enableBuildCache({ config: [__filename] }, (cache) => {
-      cache.version = `${process.env.GIT_REV}`
-      cache.name = `${process.env.target}`
     })
 }
 
